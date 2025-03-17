@@ -15,7 +15,17 @@ let inputString = "Hi";
 
 Expected Output:
 sumCodePoints: 177 // 'H' = 72, 'i' = 105, 72 + 105 = 177
+*/
 
+function addTwoCodePoints(str) {
+  if (str.length < 2) {
+    return -1
+  }
+  return str.charCodeAt(0) + str.charCodeAt(1);
+};
+let sumCodePoints = addTwoCodePoints("Hi");
+
+/*
 Exercise 2: Generate a String from Two Code Points
 Objective: Take two numeric Unicode code points,
 convert them to characters using String.fromCharCode,
@@ -31,7 +41,13 @@ let codePoint2 = 66;
 
 Expected Output:
 combinedString: "AB" // 65 = 'A', 66 = 'B', combined = "AB"
+*/
+function twoCodesToString(code1, code2) {
+  return String.fromCharCode(code1) + String.fromCharCode(code2);
+}
+let combinedString = twoCodesToString(65, 66);
 
+/*
 Exercise 3: Find the Character Difference
 Objective: Extract the Unicode code points of two given characters from a string
 and calculate the absolute difference between them.
@@ -47,9 +63,16 @@ let index2 = 2;
 
 Expected Output:
 codePointDifference: 16 // 'C' = 67, 't' = 116, |67 - 116| = 16
+*/
+function findCodeDifference(str, i1, i2) {
+  if (0 <= i1 < str.length && 0 <= i2 < str.length) {
+    return Math.abs(str.charCodeAt(i1) - str.charCodeAt(i2));
+  }
+  return -1;
+}
+let codePointDifference = findCodeDifference("Cat", 0, 2);
 
-
-
+/*
 Practice Problem #2
 
 Objective
@@ -86,18 +109,27 @@ Assign the result to a variable named swappedString.
 //Starter Code
 // Task 1
 let inputString1 = "Code";
-let firstCodePoint; // Your code here
-let thirdCodePoint; // Your code here
+let firstCodePoint = inputString1.charCodeAt(0); // Your code here
+let thirdCodePoint = inputString1.charCodeAt(2); // Your code here
 
 // Task 2
-let wordFromCodePoints; // Your code here
+let wordFromCodePoints = String.fromCharCode(72, 101, 108, 108); // Your code here
 
 // Task 3
 let inputString2 = "Launch";
-let swappedString; // Your code here
+let swappedString = String.fromCharCode(
+    inputString2.charCodeAt(5),
+    inputString2.charCodeAt(1),
+    inputString2.charCodeAt(2),
+    inputString2.charCodeAt(3),
+    inputString2.charCodeAt(4),
+    inputString2.charCodeAt(0),
+  ); // Your code here
 
 // Log all results
 console.log({
+  sumCodePoints,
+  codePointDifference,
   firstCodePoint,
   thirdCodePoint,
   wordFromCodePoints,

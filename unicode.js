@@ -129,6 +129,7 @@ let swappedString = String.fromCharCode(
 // Log all results
 console.log({
   sumCodePoints,
+  combinedString,
   codePointDifference,
   firstCodePoint,
   thirdCodePoint,
